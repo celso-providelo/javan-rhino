@@ -6,8 +6,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/",
-    "lint": "eslint -c .eslintrc.js **/*.js",
-    "test": "nyc --require babel-core/register mocha --compilers js:babel-register --recursive",
+    "lint": "eslint -c .eslintrc.js '**/*.js'",
+    "test": "npm run lint && nyc --require babel-core/register mocha --compilers js:babel-register --recursive",
     "test:watch": "npm test -- --watch",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
