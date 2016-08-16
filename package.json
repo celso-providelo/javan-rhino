@@ -1,5 +1,6 @@
 {
   "name": "javan-rhino",
+  "private": true,
   "version": "1.0.0",
   "description": "Front-end to Ubuntu Store Payments",
   "main": "index.js",
