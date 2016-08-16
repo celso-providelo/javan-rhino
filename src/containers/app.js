@@ -1,13 +1,13 @@
 import React, { PropTypes, Component } from 'react';
-import { Link } from 'react-router';
+import NavLink from '../components/navlink';
 
 export default class App extends Component {
   render() {
     return (
       <div>
         <div>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
+          <NavLink to="/" onlyActiveOnIndex={true}>Home</NavLink>
+          <NavLink to="/about">About</NavLink>
         </div>
         {this.props.children}
       </div>
