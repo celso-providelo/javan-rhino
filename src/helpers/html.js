@@ -16,11 +16,11 @@ export default class Html extends Component {
           {head.title.toComponent()}
           {head.meta.toComponent()}
           {head.link.toComponent()}
+          <link rel="stylesheet" href="/static/style.css" />
         </head>
         <body>
           <div id="content" dangerouslySetInnerHTML={{__html: content}}/>
           <script src="/static/bundle.js" />
-          <link rel="stylesheet" href="/static/style.css" />
         </body>
       </html>
     );
