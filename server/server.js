@@ -37,7 +37,12 @@ app.use('/', function (req, res) {
 
       res.status(200);
       res.send('<!doctype html>\n' +
-      renderToString(<Html component={component} />));
+        renderToString(
+          <Html
+            title="my.ubuntu.com"
+            description="my.ubuntu.com payments UI"
+            component={component} />
+      ));
     } else {
       res.status(404).send('Not found');
     }

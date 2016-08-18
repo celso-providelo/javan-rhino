@@ -1,22 +1,18 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom/server';
-import Helmet from 'react-helmet';
 
 export default class Html extends Component {
 
   render() {
-
     const { component } = this.props;
     const content = component ? ReactDOM.renderToString(component) : '';
-    const head = Helmet.rewind();
-    const attrs = head.htmlAttributes.toComponent();
 
     return (
-      <html {...attrs}>
+      <html lang="en">
         <head>
-          {head.title.toComponent()}
-          {head.meta.toComponent()}
-          {head.link.toComponent()}
+          <title>{this.props.title}</title>
+          <meta name="description" content={this.props.description} />
+          <link rel="stylesheet" href="/static/style.css" />
         </head>
         <body>
           <div id="content" dangerouslySetInnerHTML={{ __html: content }}/>
@@ -28,6 +24,8 @@ export default class Html extends Component {
 }
 
 Html.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
   component: PropTypes.node,
   assets: PropTypes.object
 };
