@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const atImport = require('postcss-import');
 const variables = require('postcss-simple-vars');
 
 module.exports = {
@@ -48,7 +47,7 @@ module.exports = {
     ]
   },
   postcss: function () {
-    return [atImport, variables];
+    return [variables];
   }
 };
 
