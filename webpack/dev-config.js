@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const variables = require('postcss-simple-vars');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   entry: [
@@ -47,7 +48,7 @@ module.exports = {
     ]
   },
   postcss: function () {
-    return [variables];
+    return [variables, autoprefixer];
   }
 };
 
