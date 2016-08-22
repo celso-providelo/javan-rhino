@@ -11,18 +11,14 @@ import Html from '../src/helpers/Html';
 import webpackConfig from '../webpack/dev-config';
 
 const app = Express();
-const compiler = webpack(webpackConfig);
-
-app.use(webpackDevMiddleware(compiler, {
-  hot: true,
-  noInfo: true,
-  publicPath: webpackConfig.output.publicPath })
-);
-
-app.use(webpackHotMiddleware(compiler));
-app.use(Express.static('public'));
 
 app.use('/', function (req, res) {
+
+  if (process.env.NODE_ENV !== 'production') {
+    // Do not cache webpack stats: the script file would change since
+    // hot module replacement is enabled in the development env
+    webpackIsomorphicTools.refresh();
+  }
 
   match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
     if (error) {
@@ -37,7 +33,7 @@ app.use('/', function (req, res) {
 
       res.status(200);
       res.send('<!doctype html>\n' +
-      renderToString(<Html component={component} />));
+      renderToString(<Html assets={webpackIsomorphicTools.assets()} component={component} />));
     } else {
       res.status(404).send('Not found');
     }

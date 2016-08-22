@@ -6,7 +6,7 @@ export default class Html extends Component {
 
   render() {
 
-    const { component } = this.props;
+    const { assets, component } = this.props;
     const content = component ? ReactDOM.renderToString(component) : '';
     const head = Helmet.rewind();
     const attrs = head.htmlAttributes.toComponent();
@@ -17,10 +17,11 @@ export default class Html extends Component {
           {head.title.toComponent()}
           {head.meta.toComponent()}
           {head.link.toComponent()}
+          <link rel="stylesheet" href={ assets.styles.main } />
         </head>
         <body>
           <div id="content" dangerouslySetInnerHTML={{ __html: content }}/>
-          <script src="/static/bundle.js" />
+          <script src={ assets.javascript.main } charSet="UTF-8"/>
         </body>
       </html>
     );
