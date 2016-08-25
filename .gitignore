@@ -38,3 +38,4 @@ jspm_packages
 
 # Application Bundle
 ./public/static/bundle.js
+*.rdb
