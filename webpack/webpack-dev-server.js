@@ -23,10 +23,11 @@ app.use(webpackHotMiddleware(compiler));
 app.use(Express.static('public'));
 
 var port = process.env.PORT || 3001;
+var address = process.env.ADDRESS || 'localhost';
 
-var server = app.listen(port, () => {
+var server = app.listen(port, address, () => {
   var host = server.address().address;
   var port = server.address().port;
 
-  util.log('try-auth app listening at http://%s:%s', host, port);
+  util.log('🚧  WebPack development server listening on http://%s:%s 🚧', host, port);
 });

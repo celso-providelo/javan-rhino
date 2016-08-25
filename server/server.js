@@ -38,11 +38,12 @@ module.exports = webpackIsomorphicTools => {
   });
 
   const port = process.env.PORT || 3000;
+  const address = process.env.ADDRESS || 'localhost';
 
-  const server = app.listen(port, () => {
+  const server = app.listen(port, address, () => {
     const host = server.address().address;
     const port = server.address().port;
 
-    util.log('try-auth app listening at http://%s:%s', host, port);
+    util.log('🚂  Express server listening on http://%s:%s 🚂', host, port);
   });
 };
