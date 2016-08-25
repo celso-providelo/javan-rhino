@@ -44,9 +44,11 @@ module.exports = {
           [
             loader(
               'css-loader',
-              'modules',
-              'importLoaders=1',
-              'localIdentName=[name]__[local]___[hash:base64:5]'
+              [
+                'modules',
+                'importLoaders=1',
+                'localIdentName=[name]__[local]___[hash:base64:5]'
+              ]
             ),
             'postcss-loader'
           ].join('!')
@@ -59,7 +61,7 @@ module.exports = {
   }
 };
 
-function loader(name, ...options) {
+function loader(name, options) {
   if (options.length > 0) {
     return name + '?' + options.join('&');
   }

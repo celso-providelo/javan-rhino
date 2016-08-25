@@ -1,5 +1,3 @@
-require('babel-register');
-
 var Express = require('express');
 var util = require('util');
 var webpack = require('webpack');
