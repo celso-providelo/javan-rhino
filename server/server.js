@@ -20,7 +20,7 @@ const app = Express();
 app.use(session({
   secret: conf.get('DATABASE:SECRET'),
   store: sesssionStore,
-  rsave: false,
+  resave: false,
   saveUninitialized: false
 }));
 
