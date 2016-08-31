@@ -1,9 +1,10 @@
 var nconf = require('nconf');
-var base = require('./settings');
+var base = require('../settings');
 
 // allow these overrides from env
 nconf.env([
   'APP:PORT',
+  'APP:HOST',
   'REDIS:HOST',
   'REDIS:PORT',
   'REDIS:SECRET'
