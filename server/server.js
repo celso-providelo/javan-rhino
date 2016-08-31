@@ -24,7 +24,7 @@ app.use(session({
   saveUninitialized: false
 }));
 
-export default (webpackIsomorphicTools) => {
+function init(webpackIsomorphicTools) {
   app.use('/', login);
   app.use('/', function (req, res) {
 
@@ -60,6 +60,6 @@ export default (webpackIsomorphicTools) => {
 
     util.log('🚂  Express server listening on http://%s:%s 🚂', host, port);
   });
-};
+}
 
-export { app };
+export { init as default, app };
