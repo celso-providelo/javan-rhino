@@ -1,6 +1,6 @@
 import Express from 'express';
 import MongoConnect from 'connect-mongo';
-import Html from '../src/helpers/Html';
+import Html from '../src/helpers/html';
 import React from 'react';
 import session from 'express-session';
 import conf from './configure.js';
