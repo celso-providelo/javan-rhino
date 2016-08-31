@@ -71,9 +71,11 @@ const verify = (req, res) => {
     if (!error) {
       req.session.name = result.fullname;
       req.session.teams = result.teams;
+      res.redirect('/');
+    } else {
+      res.send('Authentication failed: ' + error.message);
     }
 
-    res.redirect('/');
   });
 };
 

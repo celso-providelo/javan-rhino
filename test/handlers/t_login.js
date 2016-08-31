@@ -1,7 +1,7 @@
 import expect, { createSpy } from 'expect';
 import qs from 'qs';
 import conf from '../../server/configure.js';
-import { verify, logout, createRelyingParty } from '../../server/handlers/login.js';
+import { logout, createRelyingParty } from '../../server/handlers/login.js';
 
 describe('relying party', () => {
   describe('authenticate method', () => {
@@ -52,18 +52,6 @@ describe('relying party', () => {
 });
 
 describe('login handlers', () => {
-
-  it('verify should redirect on success', () => {
-    const req = {};
-    const res = {};
-    const spy = createSpy();
-    res.redirect = spy;
-
-    verify(req, res);
-
-    expect(spy.calls.length).toEqual(1);
-    expect(spy).toHaveBeenCalled();
-  });
 
   it('logout destroys session', () => {
     const spy = createSpy();

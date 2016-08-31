@@ -24,7 +24,7 @@ app.use(session({
   saveUninitialized: false
 }));
 
-function init(webpackIsomorphicTools) {
+function serve(webpackIsomorphicTools) {
   app.use('/', login);
   app.use('/', function (req, res) {
 
@@ -62,4 +62,4 @@ function init(webpackIsomorphicTools) {
   });
 }
 
-export { init as default, app };
+export { serve as default, app };
