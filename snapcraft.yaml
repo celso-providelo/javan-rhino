@@ -1,0 +1,25 @@
+name: javan-rhino
+version: 1
+summary: Snap purchasing frontend service
+description: |
+  Snap purchasing frontend service.
+confinement: devmode
+grade: devel
+
+apps:
+  node:
+    command: node
+    plugs:
+    - network
+    - network-bind
+  npm:
+    command: npm
+    plugs:
+    - network
+    - network-bind
+
+parts:
+    javan-rhino:
+        plugin: nodejs
+        node-engine: '6.5.0'
+        source: .
