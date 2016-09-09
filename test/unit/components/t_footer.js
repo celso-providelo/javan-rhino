@@ -2,12 +2,12 @@ import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
 
-import About from '../../src/containers/about.js';
+import Footer from '../../../src/components/footer';
 
-describe('<About /> container', () => {
+describe('<Footer /> component', () => {
 
   it('should render a div', () => {
-    const el = shallow(<About />);
+    const el = shallow(<Footer />);
 
     expect(el.type()).toEqual('div');
   });
